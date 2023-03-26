@@ -1,0 +1,17 @@
+version: "3"
+services:
+  app:
+    container_name: react_app
+    #privileged 特権モード
+    privileged: true
+    restart: always
+    stdin_open: true
+    tty: true
+    command: /bin/sh
+    build:
+      context: ./react-app
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./react-app/src:/usr/src/app
